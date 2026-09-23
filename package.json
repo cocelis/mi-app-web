@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 {
   "name": "mi-app-web",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Aplicación web básica para prueba de Docker",
   "main": "server.js",
   "scripts": {
@@ -11,17 +10,3 @@
     "express": "^4.18.2"
   }
 }
-=======
-{
-  "name": "mi-app-web",
-  "version": "1.0.0",
-  "description": "Aplicación web básica para prueba de Docker",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
-  }
-}
->>>>>>> 615fb298a7c1528ed39f476bd0ee2d269485e1fe

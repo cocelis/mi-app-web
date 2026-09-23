@@ -12,4 +12,4 @@ RUN apk update && apk upgrade --no-cache \
 WORKDIR /app
 COPY --from=builder /app ./
 EXPOSE 3000
-CMD ["node", "app.js"]
+CMD ["node", "server.js"]
