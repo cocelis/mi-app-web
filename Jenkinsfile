@@ -5,7 +5,16 @@ pipeline {
       steps { sh 'docker build -t mi-app-web:${BUILD_NUMBER} .' }
     }
     stage('Test') {
-      steps { sh 'curl -f http://localhost:8080/health || exit 1'}
+      steps {
+        sh '''
+          docker rm -f app-web-test || true
+          docker run -d --name app-web-test mi-app-web:${BUILD_NUMBER}
+          sleep 3
+          APP_IP=$(docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" app-web-test)
+          curl -f http://$APP_IP:3000/
+          docker rm -f app-web-test
+        '''
+      }
     }
     stage('Deploy') {
       steps {
